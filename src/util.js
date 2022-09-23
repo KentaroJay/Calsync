@@ -1,3 +1,5 @@
+import { REG_PATTERN } from "./env";
+
 /**
  * Helper function to get a new Date object relative to the current date.
  * @param {number} daysOffset The number of days in the future for the new date.
@@ -16,7 +18,7 @@ export function getRelativeDate(daysOffset, hour) {
 }
 
 export function isRelatedToMe(event) {
-  const re = /(t\.kentaro|absent|unavailable|fusioncomp|citl|abst)/gm;
+  const re = REG_PATTERN;
   const loweredSummary = event.summary.toLowerCase();
   return re.exec(loweredSummary) ? true : false;
 }
